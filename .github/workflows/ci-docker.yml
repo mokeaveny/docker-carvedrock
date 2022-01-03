@@ -19,7 +19,7 @@ on:
       - .gitignore
 
   # Allows you to run the workflow manually from the actions tab
-  workflow dispatch:
+  workflow_dispatch:
 
 jobs:
   docker:
