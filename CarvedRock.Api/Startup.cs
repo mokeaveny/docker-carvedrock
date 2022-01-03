@@ -43,7 +43,7 @@ namespace CarvedRock.Api
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "CarvedRock.Api", Version = "v1" });
-                // Small Change
+                // Test comment
             });
         }
 
