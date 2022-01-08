@@ -5,9 +5,13 @@ VisualStudioVersion = 16.0.31515.178
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CarvedRock.Api", "CarvedRock.Api\CarvedRock.Api.csproj", "{3656150F-4C1A-487D-8A03-F553C897BC14}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarvedRock.OrderProcessor", "CarvedRock.OrderProcessor\CarvedRock.OrderProcessor.csproj", "{F91BBBE0-6B81-4FAB-9F8F-095A8D11EE69}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CarvedRock.OrderProcessor", "CarvedRock.OrderProcessor\CarvedRock.OrderProcessor.csproj", "{F91BBBE0-6B81-4FAB-9F8F-095A8D11EE69}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarvedRock.InvoiceGenerator", "CarvedRock.InvoiceGenerator\CarvedRock.InvoiceGenerator.csproj", "{1E2CA938-4978-4D21-AC72-9E191836C075}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CarvedRock.InvoiceGenerator", "CarvedRock.InvoiceGenerator\CarvedRock.InvoiceGenerator.csproj", "{1E2CA938-4978-4D21-AC72-9E191836C075}"
+EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{E70BF356-87CC-4ACF-899A-84D5DC797F69}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarvedRock.App", "CarvedRock.App\CarvedRock.App.csproj", "{12A37E33-DF67-4244-93B2-DBBCC74CF3AC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +31,14 @@ Global
 		{1E2CA938-4978-4D21-AC72-9E191836C075}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1E2CA938-4978-4D21-AC72-9E191836C075}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1E2CA938-4978-4D21-AC72-9E191836C075}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E70BF356-87CC-4ACF-899A-84D5DC797F69}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E70BF356-87CC-4ACF-899A-84D5DC797F69}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E70BF356-87CC-4ACF-899A-84D5DC797F69}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E70BF356-87CC-4ACF-899A-84D5DC797F69}.Release|Any CPU.Build.0 = Release|Any CPU
+		{12A37E33-DF67-4244-93B2-DBBCC74CF3AC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{12A37E33-DF67-4244-93B2-DBBCC74CF3AC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{12A37E33-DF67-4244-93B2-DBBCC74CF3AC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{12A37E33-DF67-4244-93B2-DBBCC74CF3AC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

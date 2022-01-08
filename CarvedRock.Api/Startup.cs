@@ -7,6 +7,7 @@ using Microsoft.OpenApi.Models;
 using CarvedRock.Api.Domain;
 using CarvedRock.Api.Interfaces;
 using CarvedRock.Api.Middleware;
+using CarvedRock.Api.Integrations;
 using Serilog;
 
 namespace CarvedRock.Api
@@ -38,6 +39,7 @@ namespace CarvedRock.Api
 
             services.AddScoped<IProductLogic, ProductLogic>();
             services.AddScoped<IQuickOrderLogic, QuickOrderLogic>();
+            services.AddSingleton<IOrderProcessingNotification, OrderProcessingNotification>();
 
             services.AddControllers();
             services.AddSwaggerGen(c =>

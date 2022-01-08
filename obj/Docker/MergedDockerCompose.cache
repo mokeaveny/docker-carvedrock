@@ -1,0 +1,48 @@
+services:
+  carvedrock.api:
+    build:
+      context: .
+      dockerfile: CarvedRock.Api/Dockerfile
+    depends_on:
+      rabbit_in_dc:
+        condition: service_started
+      seq_in_dc:
+        condition: service_started
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      SimpleProperty: '"hello-from-code-compose"'
+    ports:
+    - mode: ingress
+      target: 80
+      published: 8080
+      protocol: tcp
+  carvedrock.app:
+    build:
+      context: .
+      dockerfile: CarvedRock.App/Dockerfile
+    depends_on:
+      seq_in_dc:
+        condition: service_started
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+    ports:
+    - mode: ingress
+      target: 80
+      published: 8081
+      protocol: tcp
+  rabbit_in_dc:
+    image: rabbitmq:3-management
+    ports:
+    - mode: ingress
+      target: 15672
+      published: 8088
+      protocol: tcp
+  seq_in_dc:
+    environment:
+      ACCEPT_EULA: "Y"
+    image: datalust/seq
+    ports:
+    - mode: ingress
+      target: 80
+      published: 8005
+      protocol: tcp
