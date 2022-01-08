@@ -58,3 +58,9 @@ C:\Users\micha\Documents\Microservices\Docker Projects\CarvedRock.Docker\bin\Deb
 C:\Users\micha\Documents\Microservices\Docker Projects\CarvedRock.Docker\bin\Debug\Microsoft.Extensions.FileSystemGlobbing.dll
 C:\Users\micha\Documents\Microservices\Docker Projects\CarvedRock.Docker\bin\Debug\System.Diagnostics.EventLog.dll
 C:\Users\micha\Documents\Microservices\Docker Projects\CarvedRock.Docker\bin\Debug\Microsoft.Extensions.Options.ConfigurationExtensions.dll
+C:\Users\micha\Documents\Microservices\Docker Projects\CarvedRock.Docker\bin\Debug\CarvedRock.OrderProcessor.deps.json
+C:\Users\micha\Documents\Microservices\Docker Projects\CarvedRock.Docker\bin\Debug\CarvedRock.OrderProcessor.runtimeconfig.json
+C:\Users\micha\Documents\Microservices\Docker Projects\CarvedRock.Docker\bin\Debug\CarvedRock.OrderProcessor.runtimeconfig.dev.json
+C:\Users\micha\Documents\Microservices\Docker Projects\CarvedRock.Docker\bin\Debug\CarvedRock.OrderProcessor.exe
+C:\Users\micha\Documents\Microservices\Docker Projects\CarvedRock.Docker\bin\Debug\CarvedRock.OrderProcessor.dll
+C:\Users\micha\Documents\Microservices\Docker Projects\CarvedRock.Docker\bin\Debug\CarvedRock.OrderProcessor.pdb

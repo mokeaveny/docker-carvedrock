@@ -1,0 +1,222 @@
+services:
+  carvedrock.api:
+    build:
+      context: .
+      dockerfile: CarvedRock.Api/Dockerfile
+      labels:
+        com.microsoft.created-by: visual-studio
+        com.microsoft.visual-studio.project-name: CarvedRock.Api
+      target: base
+    container_name: CarvedRock.Api
+    depends_on:
+      rabbit_in_dc:
+        condition: service_started
+      seq_in_dc:
+        condition: service_started
+    entrypoint:
+    - tail
+    - -f
+    - /dev/null
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_LOGGING__CONSOLE__DISABLECOLORS: "true"
+      DOTNET_USE_POLLING_FILE_WATCHER: "1"
+      NUGET_FALLBACK_PACKAGES: /root/.nuget/fallbackpackages
+      SimpleProperty: '"hello-from-code-compose"'
+    image: carvedrockapi:dev
+    labels:
+      com.microsoft.visualstudio.debuggee.arguments: ' --additionalProbingPath /root/.nuget/packages
+        --additionalProbingPath /root/.nuget/fallbackpackages  "/app/bin/Debug/net5.0/CarvedRock.Api.dll"'
+      com.microsoft.visualstudio.debuggee.killprogram: /bin/sh -c "if PID=$$(pidof
+        dotnet); then kill $$PID; fi"
+      com.microsoft.visualstudio.debuggee.program: dotnet
+      com.microsoft.visualstudio.debuggee.workingdirectory: /app
+    ports:
+    - mode: ingress
+      target: 80
+      published: 8080
+      protocol: tcp
+    tty: true
+    volumes:
+    - type: bind
+      source: C:\Users\micha\Documents\Microservices\Docker Projects\CarvedRock.Docker\CarvedRock.Api
+      target: /app
+      bind:
+        create_host_path: true
+    - type: bind
+      source: C:\Users\micha\Documents\Microservices\Docker Projects\CarvedRock.Docker\.
+      target: /src
+      bind:
+        create_host_path: true
+    - type: bind
+      source: C:\Users\micha\vsdbg\vs2017u5
+      target: /remote_debugger
+      bind:
+        create_host_path: true
+    - type: bind
+      source: C:\Users\micha\.nuget\packages\
+      target: /root/.nuget/packages
+      read_only: true
+      bind:
+        create_host_path: true
+    - type: bind
+      source: C:\Program Files\dotnet\sdk\NuGetFallbackFolder
+      target: /root/.nuget/fallbackpackages
+      read_only: true
+      bind:
+        create_host_path: true
+    - type: bind
+      source: C:\Users\micha\AppData\Roaming/ASP.NET/Https
+      target: /root/.aspnet/https
+      read_only: true
+      bind:
+        create_host_path: true
+    - type: bind
+      source: C:\Users\micha\AppData\Roaming/Microsoft/UserSecrets
+      target: /root/.microsoft/usersecrets
+      read_only: true
+      bind:
+        create_host_path: true
+  carvedrock.app:
+    build:
+      context: .
+      dockerfile: CarvedRock.App/Dockerfile
+      labels:
+        com.microsoft.created-by: visual-studio
+        com.microsoft.visual-studio.project-name: CarvedRock.App
+      target: base
+    container_name: CarvedRock.App
+    depends_on:
+      seq_in_dc:
+        condition: service_started
+    entrypoint:
+    - tail
+    - -f
+    - /dev/null
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_LOGGING__CONSOLE__DISABLECOLORS: "true"
+      DOTNET_USE_POLLING_FILE_WATCHER: "1"
+      NUGET_FALLBACK_PACKAGES: /root/.nuget/fallbackpackages
+    image: carvedrockapp:dev
+    labels:
+      com.microsoft.visualstudio.debuggee.arguments: ' --additionalProbingPath /root/.nuget/packages
+        --additionalProbingPath /root/.nuget/fallbackpackages  "/app/bin/Debug/net5.0/CarvedRock.App.dll"'
+      com.microsoft.visualstudio.debuggee.killprogram: /bin/sh -c "if PID=$$(pidof
+        dotnet); then kill $$PID; fi"
+      com.microsoft.visualstudio.debuggee.program: dotnet
+      com.microsoft.visualstudio.debuggee.workingdirectory: /app
+    ports:
+    - mode: ingress
+      target: 80
+      published: 8081
+      protocol: tcp
+    tty: true
+    volumes:
+    - type: bind
+      source: C:\Users\micha\Documents\Microservices\Docker Projects\CarvedRock.Docker\CarvedRock.App
+      target: /app
+      bind:
+        create_host_path: true
+    - type: bind
+      source: C:\Users\micha\Documents\Microservices\Docker Projects\CarvedRock.Docker\.
+      target: /src
+      bind:
+        create_host_path: true
+    - type: bind
+      source: C:\Users\micha\vsdbg\vs2017u5
+      target: /remote_debugger
+      bind:
+        create_host_path: true
+    - type: bind
+      source: C:\Users\micha\.nuget\packages\
+      target: /root/.nuget/packages
+      read_only: true
+      bind:
+        create_host_path: true
+    - type: bind
+      source: C:\Program Files\dotnet\sdk\NuGetFallbackFolder
+      target: /root/.nuget/fallbackpackages
+      read_only: true
+      bind:
+        create_host_path: true
+    - type: bind
+      source: C:\Users\micha\AppData\Roaming/ASP.NET/Https
+      target: /root/.aspnet/https
+      read_only: true
+      bind:
+        create_host_path: true
+    - type: bind
+      source: C:\Users\micha\AppData\Roaming/Microsoft/UserSecrets
+      target: /root/.microsoft/usersecrets
+      read_only: true
+      bind:
+        create_host_path: true
+  carvedrock.orderprocessor:
+    build:
+      context: .
+      dockerfile: CarvedRock.OrderProcessor/Dockerfile
+      labels:
+        com.microsoft.created-by: visual-studio
+        com.microsoft.visual-studio.project-name: CarvedRock.OrderProcessor
+      target: base
+    container_name: CarvedRock.OrderProcessor
+    depends_on:
+      rabbit_in_dc:
+        condition: service_started
+      seq_in_dc:
+        condition: service_started
+    entrypoint:
+    - tail
+    - -f
+    - /dev/null
+    environment:
+      NUGET_FALLBACK_PACKAGES: /root/.nuget/fallbackpackages
+    image: carvedrockorderprocessor:dev
+    labels:
+      com.microsoft.visualstudio.debuggee.arguments: ' --additionalProbingPath /root/.nuget/packages
+        --additionalProbingPath /root/.nuget/fallbackpackages  "/app/bin/Debug/net5.0/CarvedRock.OrderProcessor.dll"'
+      com.microsoft.visualstudio.debuggee.killprogram: /bin/sh -c "if PID=$$(pidof
+        dotnet); then kill $$PID; fi"
+      com.microsoft.visualstudio.debuggee.program: dotnet
+      com.microsoft.visualstudio.debuggee.workingdirectory: /app
+    tty: true
+    volumes:
+    - type: bind
+      source: C:\Users\micha\Documents\Microservices\Docker Projects\CarvedRock.Docker\CarvedRock.OrderProcessor
+      target: /app
+      bind:
+        create_host_path: true
+    - type: bind
+      source: C:\Users\micha\vsdbg\vs2017u5
+      target: /remote_debugger
+      bind:
+        create_host_path: true
+    - type: bind
+      source: C:\Users\micha\.nuget\packages\
+      target: /root/.nuget/packages
+      read_only: true
+      bind:
+        create_host_path: true
+    - type: bind
+      source: C:\Program Files\dotnet\sdk\NuGetFallbackFolder
+      target: /root/.nuget/fallbackpackages
+      read_only: true
+      bind:
+        create_host_path: true
+  rabbit_in_dc:
+    image: rabbitmq:3-management
+    ports:
+    - mode: ingress
+      target: 15672
+      published: 8088
+      protocol: tcp
+  seq_in_dc:
+    environment:
+      ACCEPT_EULA: "Y"
+    image: datalust/seq
+    ports:
+    - mode: ingress
+      target: 80
+      published: 8005
+      protocol: tcp

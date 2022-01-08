@@ -53,3 +53,4 @@ C:\Users\micha\Documents\Microservices\Docker Projects\CarvedRock.Docker\CarvedR
 C:\Users\micha\Documents\Microservices\Docker Projects\CarvedRock.Docker\CarvedRock.OrderProcessor\obj\Debug\net5.0\ref\CarvedRock.OrderProcessor.dll
 C:\Users\micha\Documents\Microservices\Docker Projects\CarvedRock.Docker\CarvedRock.OrderProcessor\obj\Debug\net5.0\CarvedRock.OrderProcessor.pdb
 C:\Users\micha\Documents\Microservices\Docker Projects\CarvedRock.Docker\CarvedRock.OrderProcessor\obj\Debug\net5.0\CarvedRock.OrderProcessor.genruntimeconfig.cache
+C:\Users\micha\Documents\Microservices\Docker Projects\CarvedRock.Docker\CarvedRock.OrderProcessor\bin\Debug\net5.0\RabbitMQ.Client.dll
